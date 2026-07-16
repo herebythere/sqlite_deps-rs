@@ -2,9 +2,7 @@
 
 This library isolates SQLite resources into a single dependency for rustlang projects.
 
-It provides:
-- the `Connection` struct from the [rusqlite](https://crates.io/crates/rusqlite) library.
-- a pool of `Connection`
+[![tests](https://github.com/w-lfpup/sqlite_deps-rs/actions/workflows/tests.yml/badge.svg)](https://github.com/w-lfpup/sqlite_deps-rs/actions/workflows/tests.yml)
 
 ## How to use
 
@@ -23,4 +21,4 @@ let _ = pool.set_connection(conn)?;
 
 # License
 
-`sqlite_connection_pool-rs` is released under the BSD 3-Clause License
+`sqlite_deps-rs` is released under the BSD 3-Clause License
