@@ -6,13 +6,24 @@ This library isolates SQLite resources into a single dependency for rustlang pro
 
 ## How to use
 
+### Connection
+
+The `sqlite_deps` is a facade for the certain structs in the [`rusqlite`](https://github.com/rusqlite/rusqlite) library. 
+
+```rs
+use sqlite_deps::Connection;
+```
+
+### Connection Pool
+
+The following example demonstrates how to create a `ConnectionPool`.
+
 ```rs
 use sqlite_deps::{ConnectionPool, Params};
 
-// filepath, connection count limit
 let pool = ConnectionPool::from_params(Params {
-    db_filepath: PathBuf::from("./filepath/to/sqlite.db")m
-    connection_limit: 4,
+    filepath: PathBuf::from("./filepath/to/sqlite.db"),
+    number_of_connections: 4,
 });
 
 let conn = pool.get_connection()?;
