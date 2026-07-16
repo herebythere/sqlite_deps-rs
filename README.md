@@ -2,7 +2,7 @@
 
 This library isolates SQLite resources into a single dependency for rustlang projects.
 
-[![tests](https://github.com/w-lfpup/sqlite_deps-rs/actions/workflows/tests.yml/badge.svg)](https://github.com/w-lfpup/sqlite_deps-rs/actions/workflows/tests.yml)
+[![Tests](https://github.com/herebythere/sqlite_deps-rs/actions/workflows/tests.yml/badge.svg)](https://github.com/herebythere/sqlite_deps-rs/actions/workflows/tests.yml)
 
 ## How to use
 
