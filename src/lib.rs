@@ -3,7 +3,7 @@ use std::path::PathBuf;
 
 #[derive(Clone)]
 pub struct Params {
-    pub db_filepath: PathBuf,
+    pub filepath: PathBuf,
     pub connection_limit: usize,
 }
 
@@ -27,7 +27,7 @@ impl ConnectionPool {
             return Ok(conn);
         }
 
-        match Connection::open(&self.params.db_filepath) {
+        match Connection::open(&self.params.filepath) {
             Ok(cn) => Ok(cn),
             Err(e) => return Err(e.to_string()),
         }
