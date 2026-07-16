@@ -1,6 +1,7 @@
-use sqlite_connection_pool::{Connection, ConnectionPool, Params};
 use std::fs;
 use std::path::PathBuf;
+
+use sqlite_deps::{Connection, ConnectionPool, Params};
 
 const TEST_DB_FILEPATH: &str = "sqlite_connection_pool_tests.sqlite";
 
@@ -43,14 +44,14 @@ fn test_lifecycle() -> Result<(), String> {
     Ok(())
 }
 
-fn get_hello_world_sqlite(conn: &mut Connection) -> Result<usize, String> {
+fn get_hello_world_sqlite(conn: &mut Connection) -> Result<isize, String> {
     let mut stmt = match conn.prepare("SELECT 1") {
         Ok(stmt) => stmt,
         Err(e) => return Err(e.to_string()),
     };
 
     let mut iter = match stmt.query_map([], |row| {
-        let message: usize = row.get(0)?;
+        let message: isize = row.get(0)?;
         Ok(message)
     }) {
         Ok(iter) => iter,
