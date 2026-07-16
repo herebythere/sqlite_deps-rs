@@ -9,7 +9,7 @@ const TEST_DB_FILEPATH: &str = "sqlite_connection_pool_tests.sqlite";
 fn test_lifecycle() -> Result<(), String> {
     let mut pool = ConnectionPool::from_params(Params {
         filepath: PathBuf::from(TEST_DB_FILEPATH),
-        connection_limit: 2,
+        number_of_connections: 2,
     });
 
     let mut conn = match pool.get_connection() {

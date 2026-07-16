@@ -4,7 +4,7 @@ use std::path::PathBuf;
 #[derive(Clone)]
 pub struct Params {
     pub filepath: PathBuf,
-    pub connection_limit: usize,
+    pub number_of_connections: usize,
 }
 
 pub struct ConnectionPool {
@@ -37,7 +37,7 @@ impl ConnectionPool {
         self.pop();
 
         let connection_count = self.outgoing_connections.len() + self.incoming_connections.len();
-        if connection_count < self.params.connection_limit {
+        if connection_count < self.params.number_of_connections {
             self.incoming_connections.push(conn);
         }
 
